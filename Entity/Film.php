@@ -9,7 +9,12 @@
 
 namespace Acme\CatalogFilmsBundle\Entity;
 
-
+use Doctrine\ORM\Mapping as ORM;
+use Acme\CatalogFilmsBundle\Entity\Genre as Genre;
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="film")
+ */
 class Film
 {
 	/**
@@ -25,7 +30,7 @@ class Film
 	private $title;
 
 	/**
-	 * @ORM\Column(type="text"
+	 * @ORM\Column(type="text")
 	 */
 	private $description;
 
