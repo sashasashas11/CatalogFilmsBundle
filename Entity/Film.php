@@ -11,6 +11,9 @@ namespace Acme\CatalogFilmsBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Acme\CatalogFilmsBundle\Entity\Genre as Genre;
+use Acme\CatalogFilmsBundle\Entity\Actor as Actor;
+use Acme\CatalogFilmsBundle\Entity\Category as Category;
+
 /**
  * @ORM\Entity
  * @ORM\Table(name="film")
@@ -36,7 +39,7 @@ class Film
 
 	/**
 	 *
-	 * @ManyToMany(targetEntity="Genre", inversedBy="filmGenres")
+	 * @ORM\ManyToMany(targetEntity="Genre", inversedBy="filmGenres")
 	 * @JoinTable(name="films_genres",
 	 *   joinColumns={@JoinColumn(name="film_id", referencedColumnName="id")},
 	 *   inverseJoinColumns={@JoinColumn(name="genre_id", referencedColumnName="id")}
@@ -46,7 +49,7 @@ class Film
 
 	/**
 	 *
-	 * @ManyToMany(targetEntity="Actor", inversedBy="filmActors")
+	 * @ORM\ManyToMany(targetEntity="Actor", inversedBy="filmActors")
 	 * @JoinTable(name="films_actors",
 	 *   joinColumns={@JoinColumn(name="film_id", referencedColumnName="id")},
 	 *   inverseJoinColumns={@JoinColumn(name="actor_id", referencedColumnName="id")}
@@ -56,7 +59,7 @@ class Film
 
 	/**
 	 *
-	 * @ManyToMany(targetEntity="Category", inversedBy="filmCategory")
+	 * @ORM\ManyToMany(targetEntity="Category", inversedBy="filmCategory")
 	 * @JoinTable(name="films_Categories",
 	 *   joinColumns={@JoinColumn(name="film_id", referencedColumnName="id")},
 	 *   inverseJoinColumns={@JoinColumn(name="Category_id", referencedColumnName="id")}
