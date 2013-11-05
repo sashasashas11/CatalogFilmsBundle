@@ -1,3 +1,13 @@
 acme_catalog_films_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: AcmeCatalogFilmsBundle:Default:index }
+add-category-film:
+    pattern:  /add-category
+    defaults: { _controller: AcmeCatalogFilmsBundle:Category:addCategory}
+add-actor:
+    pattern:  /add-actor
+    defaults: { _controller: AcmeCatalogFilmsBundle:Actor:addActor }
+add-genre:
+    pattern:  /add-genre
+    defaults: { _controller: AcmeCatalogFilmsBundle:Genre:addGenre }
+
