@@ -1,0 +1,69 @@
+<?php
+/**
+ * Created by JetBrains PhpStorm.
+ * User: sasha
+ * Date: 03.11.13
+ * Time: 17:05
+ * To change this template use File | Settings | File Templates.
+ */
+
+namespace Acme\CatalogFilmsBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+use Acme\CatalogFilmsBundle\Entity\Genre as Genre;
+use Acme\CatalogFilmsBundle\Entity\Actor as Actor;
+use Acme\CatalogFilmsBundle\Entity\Category as Category;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="film")
+ */
+class Film
+{
+	/**
+	 * @ORM\Id
+	 * @ORM\Column(type="integer")
+	 * @ORM\GeneratedValue(strategy="AUTO")
+	 */
+	private $id;
+
+	/**
+	 * @ORM\Column(type="string", length=50)
+	 */
+	private $title;
+
+	/**
+	 * @ORM\Column(type="text")
+	 */
+	private $description;
+
+	/**
+	 *
+	 * @ORM\ManyToMany(targetEntity="Genre", inversedBy="filmGenres")
+	 * @ORM\JoinTable(name="films_genres",
+	 *   joinColumns={@ORM\JoinColumn(name="film_id", referencedColumnName="id")},
+	 *   inverseJoinColumns={@ORM\JoinColumn(name="genre_id", referencedColumnName="id")}
+	 * )
+	 */
+	private $Genres;
+
+	/**
+	 *
+	 * @ORM\ManyToMany(targetEntity="Actor", inversedBy="filmActors")
+	 * @ORM\JoinTable(name="films_actors",
+	 *   joinColumns={@ORM\JoinColumn(name="film_id", referencedColumnName="id")},
+	 *   inverseJoinColumns={@ORM\JoinColumn(name="actor_id", referencedColumnName="id")}
+	 * )
+	 */
+	private $actors;
+
+	/**
+	 *
+	 * @ORM\ManyToMany(targetEntity="Category", inversedBy="filmCategory")
+	 * @ORM\JoinTable(name="films_Categories",
+	 *   joinColumns={@ORM\JoinColumn(name="film_id", referencedColumnName="id")},
+	 *   inverseJoinColumns={@ORM\JoinColumn(name="Category_id", referencedColumnName="id")}
+	 * )
+	 */
+	private $category;
+}

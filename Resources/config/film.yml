@@ -1,0 +1,30 @@
+film:
+    pattern:  /
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:index" }
+
+film_show:
+    pattern:  /{id}/show
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:show" }
+
+film_new:
+    pattern:  /new
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:new" }
+
+film_create:
+    pattern:  /create
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:create" }
+    requirements: { _method: post }
+
+film_edit:
+    pattern:  /{id}/edit
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:edit" }
+
+film_update:
+    pattern:  /{id}/update
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:update" }
+    requirements: { _method: post|put }
+
+film_delete:
+    pattern:  /{id}/delete
+    defaults: { _controller: "AcmeCatalogFilmsBundle:Film:delete" }
+    requirements: { _method: post|delete }

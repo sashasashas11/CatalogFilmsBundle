@@ -1,0 +1,15 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}Add actor{% endblock %}
+{% block body %}
+    <p class="text-info">Добавить жанр:</p>
+
+    <form action="{{ path('add-genre') }}" method="post" {{ form_enctype(form) }}>
+        {{ form_widget(form) }}
+
+        <div class="row-fluid">
+            <input class="btn btn-success" type="submit" name="submit" value="Отправить">
+        </div>
+    </form>
+
+{% endblock %}
