@@ -1,13 +1,20 @@
 acme_catalog_films_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: AcmeCatalogFilmsBundle:Default:index }
-add-category-film:
-    pattern:  /add-category
-    defaults: { _controller: AcmeCatalogFilmsBundle:Category:addCategory}
-add-actor:
-    pattern:  /add-actor
-    defaults: { _controller: AcmeCatalogFilmsBundle:Actor:addActor }
-add-genre:
-    pattern:  /add-genre
-    defaults: { _controller: AcmeCatalogFilmsBundle:Genre:addGenre }
+
+acme_catalog_films_actor:
+    resource: "@AcmeCatalogFilmsBundle/Resources/config/actor.yml"
+    prefix:   /actor
+
+acme_catalog_films_category:
+    resource: "@AcmeCatalogFilmsBundle/Resources/config/category.yml"
+    prefix:   /category
+
+acme_catalog_films_genre:
+    resource: "@AcmeCatalogFilmsBundle/Resources/config/genre.yml"
+    prefix:   /genre
+
+acme_catalog_films_film:
+    resource: "@AcmeCatalogFilmsBundle/Resources/config/film.yml"
+    prefix:   /film
 
