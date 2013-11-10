@@ -75,7 +75,12 @@ class Film
         $this->actors = new \Doctrine\Common\Collections\ArrayCollection();
         $this->category = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
+	public  function __toString()
+	{
+		return $this->getTitle();
+	}
+
     /**
      * Get id
      *
